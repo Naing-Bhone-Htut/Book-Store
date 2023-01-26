@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html th:replace="layout/adminLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+<main role="main">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Book List</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive-sm">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>Year Published</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Genre</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="b:${books}">
+                                    <td th:text="${b.id}"></td>
+                                    <td th:text="${b.title}"></td>
+                                    <td th:text="${b.yearPublished}"></td>
+                                    <td th:text="${'$'+b.price}"></td>
+                                    <td th:text="${b.quantity}"></td>
+                                    <td th:text="${b.genre}"></td>
+                                    <td th:text="${b.description}"></td>
+                                    <td th:text="${b.category.categoryName}"></td>
+                                    <td th:text="${b.author.name}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/admin/book-form}" class="btn btn-primary btn-block">New Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
