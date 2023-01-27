@@ -20,14 +20,5 @@ public class TestController {
         return "forward:/admin/book/all";
     }
 
-    @GetMapping(value = {"/","/home"})
-    public String index(){
-        return "index";
-    }
-
-    @ModelAttribute("books")
-    public List<Book> bookList(){
-        return bookDao.findAll();
-    }
 
 }
